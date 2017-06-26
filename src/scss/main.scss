@@ -1,0 +1,21 @@
+$titulo-color:rgb(247,182,23);
+$menu-color:rgb(43,43,43);
+
+#titulo{
+  background: $titulo-color;
+}
+/* probando las funciones en Sass*/
+@function grid($num,$cols){
+  @return percentage($num/$cols);
+}
+
+
+/* .col-12{
+     width: grid(6,12);
+   }*/
+
+@for $i from 1 through 12 {
+  .col-#{$i}{
+    width: grid($i,12);
+  }
+}
