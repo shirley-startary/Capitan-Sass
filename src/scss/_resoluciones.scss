@@ -1,0 +1,38 @@
+@media screen and (max-width: $break-small) {
+  /* probando las funciones en Sass*/
+  @function grid($num,$cols){
+    @return percentage($num/$cols);
+    // @return unquote(($num/$cols)*100 +"%");
+  }
+  @for $i from 1 through 12 {
+    .small-#{$i}{
+      width: grid($i,12);
+    }
+  }
+}
+
+ @media screen and (min-width: $break-medium) {
+  /* probando las funciones en Sass*/
+  @function grid($num,$cols){
+    @return percentage($num/$cols);
+    // @return unquote(($num/$cols)*100 +"%");
+  }
+  @for $i from 1 through 12 {
+    .medium-#{$i}{
+      width: grid($i,12);
+    }
+  }
+}
+
+@media screen and (min-width: $break-large) {
+ /* probando las funciones en Sass*/
+ @function grid($num,$cols){
+   @return percentage($num/$cols);
+   // @return unquote(($num/$cols)*100 +"%");
+ }
+ @for $i from 1 through 12 {
+   .large-#{$i}{
+     width: grid($i,12);
+   }
+ }
+}
