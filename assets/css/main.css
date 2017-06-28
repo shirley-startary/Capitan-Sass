@@ -1,10 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.container {
+  width: 100%;
+  margin: 0 auto; }
+
+.row:before, .row:after {
+  content: " ";
+  display: table; }
+
+.row:after {
+  clear: both; }
+
+[class*="col-"] {
+  min-height: 7px;
+  padding: 12px;
+  float: left; }
+
 #titulo {
-  background: #f7b617; }
+  background: #f7b617;
+  color: white; }
 
 /* probando las funciones en Sass*/
-/* .col-12{
-     width: grid(6,12);
-   }*/
 .col-1 {
   width: 8.33333%; }
 
