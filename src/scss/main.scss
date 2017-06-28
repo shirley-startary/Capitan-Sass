@@ -1,21 +1,44 @@
 $titulo-color:rgb(247,182,23);
 $menu-color:rgb(43,43,43);
+$letra-blanca:rgb(255,255,255);
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+.row:after{
+  clear:both;
+}
+[class*="col-"]{
+  min-height: 7px;
+  padding: 12px;
+  float: left;
+}
 #titulo{
   background: $titulo-color;
+  color: $letra-blanca;
 }
+
 /* probando las funciones en Sass*/
 @function grid($num,$cols){
   @return percentage($num/$cols);
+  // @return unquote(($num/$cols)*100 +"%");
 }
-
-
-/* .col-12{
-     width: grid(6,12);
-   }*/
-
 @for $i from 1 through 12 {
   .col-#{$i}{
     width: grid($i,12);
   }
+}
+
+@media () {
+
 }
