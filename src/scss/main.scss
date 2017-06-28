@@ -1,26 +1,27 @@
-$titulo-color:rgb(247,182,23);
-$menu-color:rgb(43,43,43);
-$letra-blanca:rgb(255,255,255);
-$break-small: 500px;
-$break-medium:768px;
-$break-large: 1200px;
+@import '_variables';
+@import '_resoluciones';
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 .container{
   width: 100%;
   margin: 0 auto;
 }
-.row:before, .row:after {
-  content: " ";
-  display: table;
+.row{
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after{
+    @extend .row:before;
+    clear: both;
+  }
 }
-.row:after{
-  clear:both;
-}
+
 [class*="small-"]{
   min-height: 7px;
   padding: 12px;
@@ -29,43 +30,26 @@ $break-large: 1200px;
 #titulo{
   background: $titulo-color;
   color: $letra-blanca;
+  padding: 1%;
+}
+.aside, footer{
+  background: $menu-color;
+  color: $letra-blanca;
+  padding: 3%;
+  margin: 2% auto;
+  text-align: $centrar-texto;
 }
 
-@media screen and (max-width: $break-small) {
-  /* probando las funciones en Sass*/
-  @function grid($num,$cols){
-    @return percentage($num/$cols);
-    // @return unquote(($num/$cols)*100 +"%");
-  }
-  @for $i from 1 through 12 {
-    .small-#{$i}{
-      width: grid($i,12);
+.menu{
+  li{
+    padding-left: 3%;
+    @extend .aside;
+    text-align:left;
+    &:hover{
+      background:$titulo-color;
     }
   }
 }
-
- @media screen and (min-width: $break-medium) {
-  /* probando las funciones en Sass*/
-  @function grid($num,$cols){
-    @return percentage($num/$cols);
-    // @return unquote(($num/$cols)*100 +"%");
-  }
-  @for $i from 1 through 12 {
-    .medium-#{$i}{
-      width: grid($i,12);
-    }
-  }
-}
-
-@media screen and (min-width: $break-large) {
- /* probando las funciones en Sass*/
- @function grid($num,$cols){
-   @return percentage($num/$cols);
-   // @return unquote(($num/$cols)*100 +"%");
- }
- @for $i from 1 through 12 {
-   .large-#{$i}{
-     width: grid($i,12);
-   }
- }
+#listaEstudiantes{
+  padding-left: 5%;
 }
